@@ -1,0 +1,40 @@
+:root {
+  /* theme */
+  /* blue color */
+  --clr-blue-5: #03045e;
+  --clr-blue-4: #0077b6;
+  --clr-blue-3: #00b4d8;
+  --clr-blue-2: #90e0ef;
+  --clr-blue-1: #caf0f8;
+  /* grey color */        
+  --clr-grey-1: #454E88;
+  --clr-grey-2: #5B6EB5;
+  --clr-grey-3: #8AA2D0;
+  --clr-grey-4: #B0C2E0;
+  --clr-grey-5: #D0DAED;
+  --clr-white: #fff;       
+  --ff-primary:"Noto Sans HK", sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+  --light-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  --dark-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+      /* border: 1px solid red; */
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  /* font-family: "Noto Sans HK", sans-serif; */
+  /* background: var(--clr-blue-2); */
+  line-height:1.5;
+  font-size: 0.875rem;
+}

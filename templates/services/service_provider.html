@@ -1,0 +1,288 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section id="" class="showcase-search py-4 text-white" style="background: url('{% static 'img/services bg.jpg' %}') no-repeat center center/cover;">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h2 class="display-4">Find Pet Services</h2>          
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- Breadcrumb -->
+<section id="bc" class="mt-2">
+    <div class="container">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'services' %}">Pet services</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'service_list' %}">Find pet services</a>
+          </li>
+          <li class="breadcrumb-item active">{{service_provider.shop_name}}</li>
+        </ol> 
+      </nav>
+    </div>
+  </section>
+
+<section class="py-3">
+    <div class="container">
+        <a href="{% url 'service_list' %}" class="btn btn-light mb-3">Back To Services</a>
+        
+        <div class="row">
+            <!-- Main Content Column -->
+            <div class="col-md-8">
+                <!-- Main Shop Photo -->
+                <div class="shop-photo mb-4">
+                    {% if service_provider.photo_main %}
+                        <img src="{{ service_provider.photo_main.url }}" alt="{{ service_provider.shop_name }}" class="img-fluid rounded shadow-sm">
+                    {% else %}
+                        <img src="{% static 'img/default-shop.jpg' %}" alt="{{ service_provider.shop_name }}" class="img-fluid rounded shadow-sm">
+                    {% endif %}
+                </div>
+
+                <!-- Shop Info Card -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h1 class="h4 mb-0 text-truncate shop-name">{{ service_provider.shop_name }}</h1>
+                            {% if service_provider.is_24hours %}
+                                <div class="emergency-service">
+                                    <span class="badge bg-info text-white p-2">
+                                        <i class="fas fa-clock"></i> 24HR Emergency Service
+                                    </span>
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <p class="lead mb-4"><i class="fas fa-map-marker-alt text-muted"></i> {{ service_provider.get_district_display }}</p>
+
+                        <h5 class="mb-2">About</h5>
+                        <p class="mb-4">{{ service_provider.description }}</p>
+
+                        <h5 class="mb-2">Services Offered</h5>
+                        <div class="row mb-4">
+                            {% for service in services %}
+                            <div class="col-md-6 mb-2">
+                                <div class="card bg-light">
+                                    <div class="card-body py-2">
+                                        <p class="mb-0"><i class="fas fa-check text-success"></i> {{ service }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <h5 class="mb-2">Contact Information</h5>
+                        <div class="contact-info mb-4">
+                            <p><i class="fas fa-map text-muted"></i> <strong>Address:</strong> {{ service_provider.address }}</p>
+                            <p><i class="fas fa-phone text-muted"></i> <strong>Phone:</strong> {{ service_provider.telephone }}</p>
+                            {% if service_provider.email %}
+                                <p><i class="fas fa-envelope text-muted"></i> <strong>Email:</strong> {{ service_provider.email }}</p>
+                            {% endif %}
+                            {% if service_provider.website %}
+                                <p><i class="fas fa-globe text-muted"></i> <strong>Website:</strong> <a href="{{ service_provider.website }}" target="_blank" class="text-info">Visit Website</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Column -->
+            <div class="col-md-4">
+                <!-- Photo Gallery -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body p-2">
+                        <div class="row g-2">
+                            {% if service_provider.photo_1 %}
+                            <!-- Main Large Photo -->
+                            <div class="col-12 mb-3">
+                                <a href="{{ service_provider.photo_1.url }}" data-lightbox="gallery" data-title="Gallery 1">
+                                    <img src="{{ service_provider.photo_1.url }}" alt="Gallery 1" class="img-fluid rounded gallery-main">
+                                </a>
+                            </div>
+                            <!-- Second Photo with Overlay -->
+                            <div class="col-12">
+                                {% if service_provider.photo_2 %}
+                                <div class="position-relative gallery-overlay-container">
+                                    <a href="{{ service_provider.photo_2.url }}" data-lightbox="gallery" data-title="Gallery 2" class="gallery-link">
+                                        <img src="{{ service_provider.photo_2.url }}" alt="Gallery 2" class="img-fluid rounded gallery-small">
+                                        {% if service_provider.photo_3 or service_provider.photo_4 or service_provider.photo_5 or service_provider.photo_6 %}
+                                        <div class="photo-overlay">
+                                            <span class="overlay-text">+{{ remaining_photos }}</span>
+                                        </div>
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hidden Gallery Links -->
+                <div style="display: none;">
+                    {% if service_provider.photo_3 %}
+                    <a href="{{ service_provider.photo_3.url }}" data-lightbox="gallery" data-title="Gallery 3">
+                        <img src="{{ service_provider.photo_3.url }}" alt="Gallery 3">
+                    </a>
+                    {% endif %}
+                    {% if service_provider.photo_4 %}
+                    <a href="{{ service_provider.photo_4.url }}" data-lightbox="gallery" data-title="Gallery 4">
+                        <img src="{{ service_provider.photo_4.url }}" alt="Gallery 4">
+                    </a>
+                    {% endif %}
+                    {% if service_provider.photo_5 %}
+                    <a href="{{ service_provider.photo_5.url }}" data-lightbox="gallery" data-title="Gallery 5">
+                        <img src="{{ service_provider.photo_5.url }}" alt="Gallery 5">
+                    </a>
+                    {% endif %}
+                    {% if service_provider.photo_6 %}
+                    <a href="{{ service_provider.photo_6.url }}" data-lightbox="gallery" data-title="Gallery 6">
+                        <img src="{{ service_provider.photo_6.url }}" alt="Gallery 6">
+                    </a>
+                    {% endif %}
+                </div>
+
+                <!-- Opening Hours -->
+                {% if service_provider.opening_hours %}
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="mb-2">Opening Hours</h5>
+                        <p class="mb-0">{{ service_provider.opening_hours|linebreaks }}</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+:root {
+    --clr-blue-3: #00b4d8;
+    --clr-blue-4: #0077b6;
+}
+.emergency-service .badge {
+    background-color: #00BCD4 !important;
+    font-size: 0.9rem;
+}
+.shop-photo img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+}
+.contact-info p {
+    margin-bottom: 0.5rem;
+}
+.contact-info i {
+    width: 20px;
+}
+.gallery-main {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+.gallery-small {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+.gallery-overlay-container {
+    cursor: pointer;
+}
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+}
+.overlay-text {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.gallery-link {
+    display: block;
+    position: relative;
+    text-decoration: none;
+}
+
+/* Custom Lightbox Styles */
+.lb-prev, .lb-next {
+    opacity: 1 !important;
+}
+.lb-prev::before, .lb-next::before {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+.lb-prev::before {
+    content: "‹";
+    left: 10px;
+}
+.lb-next::before {
+    content: "›";
+    right: 10px;
+}
+.lb-nav a.lb-prev {
+    position: relative;
+}
+.lb-nav a.lb-next {
+    position: relative;
+}
+
+/* Fixed size for lightbox images */
+.lb-outerContainer {
+    width: 800px !important;
+    height: 600px !important;
+}
+.lb-container {
+    width: 100% !important;
+    height: 100% !important;
+}
+.lb-image {
+    width: 800px !important;
+    height: 600px !important;
+    object-fit: contain !important;
+    background: #000;
+}
+.lb-dataContainer {
+    width: 800px !important;
+}
+.shop-name {
+    font-weight: 700;
+    color: #0077b6;
+    color: var(--clr-blue-4);
+}
+</style>
+
+<!-- Initialize Lightbox with custom settings -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true,
+        'showImageNumberLabel': false,
+        'fadeDuration': 200,
+        'fitImagesInViewport': true,
+        'maxWidth': 800,
+        'maxHeight': 600
+    });
+});
+</script>
+
+{% endblock %}

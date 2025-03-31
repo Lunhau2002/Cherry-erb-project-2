@@ -1,0 +1,191 @@
+{% extends 'base.html'%} {% load static %} {% block content %}
+<!-- Hero Section -->
+<section class="hero-section py-5 text-white" style="background: url('{% static 'img/dog bg orange.jpg' %}') no-repeat center center; background-size: cover;">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h1 class="display-4 fw-bold">Pet Services</h1>
+        <p class="lead">
+          Discover comprehensive care solutions for your beloved pets
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Service Overview -->
+<section class="service-details py-5 bg-light">
+  <div class="container">
+    <!-- Veterinary Details -->
+    <div class="service-section mb-5">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h2 class="section-title h3 mb-4" style="color: #0077b6;"><i class="fas fa-stethoscope me-2"></i>Veterinary Services</h2>
+          <p class="lead mb-4">
+            Veterinary services are essential for keeping pets healthy and happy. These services include medical check-ups, vaccinations, and treatments for various health issues. Some clinics also provide 24-hour emergency care and hospitalization for urgent situations.
+          </p>
+          <div class="service-gallery row g-3">
+            <div class="col-4">
+              <img src="{% static 'img/veterinary 1.jpg' %}" alt="Diagnostic services" class="img-fluid rounded shadow-sm">
+            </div>
+            <div class="col-4">
+              <img src="{% static 'img/veterinary 2.jpeg' %}" alt="Surgical procedures" class="img-fluid rounded shadow-sm">
+            </div>
+            <div class="col-4">
+              <img src="{% static 'img/veterinary 3.jpg' %}" alt="Regular check-ups" class="img-fluid rounded shadow-sm">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="service-info-card p-4 bg-white rounded shadow-sm">
+            <h3 class="h5 mb-3">Comprehensive Care</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Routine Check-ups</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Vaccinations</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Emergency Care</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Specialized Treatments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grooming Details -->
+    <div class="service-section mb-5">
+      <div class="row align-items-center">
+        <div class="col-md-6 order-md-2">
+          <h2 class="section-title h3 mb-4" style="color: #0077b6;"><i class="fas fa-cut me-2"></i>Pet Grooming Services</h2>
+          <p class="lead mb-4">
+            Pet grooming services help to keep your pets healthy and look good. They include activities like bathing, brushing, nail trimming, and ear cleaning. Professional groomers use special techniques and quality products tailored to each pet's needs.
+          </p>
+          <div class="service-gallery row g-3">
+            <div class="col-4">
+              <img src="{% static 'img/grooming 1.jpeg' %}" alt="Bathing and spa services" class="img-fluid rounded shadow-sm">
+            </div>
+            <div class="col-4">
+              <img src="{% static 'img/grooming 2.jpg' %}" alt="Styling and trimming" class="img-fluid rounded shadow-sm">
+            </div>
+            <div class="col-4">
+              <img src="{% static 'img/grooming 3.jpg' %}" alt="Specialized care" class="img-fluid rounded shadow-sm">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 order-md-1">
+          <div class="service-info-card p-4 bg-white rounded shadow-sm">
+            <h3 class="h5 mb-3">Grooming Services</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Bathing & Spa</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Hair Styling</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Nail Trimming</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Ear Cleaning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Boarding Details -->
+    <div class="service-section">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h2 class="section-title h3 mb-4" style="color: #0077b6;"><i class="fas fa-home me-2"></i>Pet Boarding Services</h2>
+          <p class="lead mb-4">
+            Pet boarding services provide a safe and comfortable environment for your pets when you're away. Our recommended facilities offer professional care, regular exercise, and comfortable accommodations.
+          </p>
+          <div class="service-gallery row g-3">
+            <div class="col-4">
+              <img src="{% static 'img/boarding 1.jpg' %}" alt="Comfortable accommodation" class="img-fluid rounded shadow-sm">
+            </div>
+            <div class="col-4">
+              <img src="{% static 'img/boarding 2.jpeg' %}" alt="Outdoor exercise areas" class="img-fluid rounded shadow-sm">
+            </div>
+            <div class="col-4">
+              <img src="{% static 'img/boarding 3.jpeg' %}" alt="Professional care" class="img-fluid rounded shadow-sm">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="service-info-card p-4 bg-white rounded shadow-sm">
+            <h3 class="h5 mb-3">Boarding Features</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Safe Environment</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Regular Exercise</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Professional Staff</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Modern Amenities</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Search Services Section -->
+<section class="search-services py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 text-center">
+        <h2 class="section-title h3 mb-4" style="color: #0077b6;"><i class="fas fa-search me-2"></i>Find Pet Services Near You</h2>
+        <p class="lead mb-4">
+          Search through our comprehensive directory of pet services to find the perfect care for your pets.
+        </p>
+        <a href="{% url 'service_list' %}" class="btn btn-primary btn-lg">
+          <i class="fas fa-search me-2"></i>Search Services
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+  }
+  .hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .service-card {
+    transition: transform 0.3s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-5px);
+  }
+  .service-icon {
+    color: var(--clr-blue-4);
+  }
+  .section-title {
+    color: var(--clr-blue-4);
+    font-weight: 600;
+  }
+  .service-gallery img {
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .service-gallery img:hover {
+    transform: scale(1.05);
+  }
+  .service-info-card {
+    height: 100%;
+  }
+  .btn-primary {
+    background-color: #0077b6;
+    border-color: #0077b6;
+    padding: 12px 30px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  .btn-primary:hover {
+    background-color: #005b8c;
+    border-color: #005b8c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+</style>
+{% endblock %}

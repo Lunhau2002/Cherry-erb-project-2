@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% load static %} {% load humanize %} {% block content %}
+    <!-- Showcase -->
+    <section id="index" class="py-5 text-white" style="background: url('{% static 'img/day_care.jpg' %}') no-repeat center center; background-size: cover;">
+        <div class="container text-center">
+          <div class="home-search p-5">
+            <div class="overlay p-5">
+              <h1 class="display-4 mb-4">Welcome to the world of pets</h1>              
+            </div>
+          </div>
+        </div>
+      </section>  
+      
+      <section id="service-index" class="py-5 bg-info text-white">
+        <div class="container text-center">
+          <h4 class="display-5 mb-4">Do you want to find a pet?</h4>
+          <img src="{% static 'img/dogs&cats.jpg' %}" alt="" class="img-fluid" />
+         
+        </div>
+      </section>
+{% endblock %}
