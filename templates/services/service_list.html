@@ -1,10 +1,10 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<section id="" class="showcase-search py-5 text-white" style="background: url('{% static 'img/services bg.jpg' %}') no-repeat center center/cover;">
+<section id="" class="showcase-search py-4 text-white" style="background: url('{% static 'img/services bg.jpg' %}') no-repeat center center; background-size: cover;">
     <div class="overlay"></div>
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
-          <h2 class="display-4">Find Pet Services</h2>          
+          <h2 class="display-4 fw-bold">Find Pet Services</h2>          
         </div>
       </div>
     </div>
@@ -93,8 +93,7 @@
 
 <!-- Results -->
 <div class="container mt-4">
-    <h1 class="mb-4">Pet Services</h1>
-    
+    <h1 class="mb-4">Pet Services</h1>    
     <div class="row g-4">
         {% for provider in providers %}
         <div class="col-md-4">
@@ -169,6 +168,17 @@
 </div>
 
 <style>
+    .showcase-search {
+        min-height: 120px;
+    }
+    @media (min-width: 768px) {
+        .showcase-search {
+        min-height: 150px;
+        }
+    }
+    .text-shadow {
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
     .btn-info {
         background-color: #00BCD4;
         border-color: #00BCD4;
@@ -188,7 +198,7 @@
         color: #000 !important;
     }
     .card-body {
-        min-height: 200px;
+        min-height: 100px;
         display: flex;
         flex-direction: column;
     }

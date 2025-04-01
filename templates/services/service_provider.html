@@ -1,10 +1,10 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<section id="" class="showcase-search py-4 text-white" style="background: url('{% static 'img/services bg.jpg' %}') no-repeat center center/cover;">
+<section id="" class="showcase-search py-4 text-white" style="background: url('{% static 'img/dog bg blue.jpg' %}') no-repeat center center; background-size: cover;">
     <div class="overlay"></div>
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
-          <h2 class="display-4">Find Pet Services</h2>          
+          <h2 class="display-4 fw-bold">Find Pet Services</h2>          
         </div>
       </div>
     </div>
@@ -161,7 +161,15 @@
     </div>
 </section>
 
-<style>
+<style>    
+    .showcase-search {
+        min-height: 120px;
+    }
+    @media (min-width: 768px) {
+        .showcase-search {
+        min-height: 150px;
+        }
+    }
 :root {
     --clr-blue-3: #00b4d8;
     --clr-blue-4: #0077b6;
